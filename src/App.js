@@ -1,22 +1,21 @@
 import Navbar from './components/Navbar/Navbar';
-import Counter from './components/Counter/Counter';
-import ItemListContai from './components/ItemListContai';
-import ItemListContainer from './components/ItemListContainer';
-//import img desde src
-//import nombreQueYoQuiera from './logo.svg';
-
-//import desde public directamente se escribe la ruta como si ya estuvieramos parados en public
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => {
     return (
-        <>
+        <BrowserRouter>
             <Navbar />
-            <ItemListContainer saludo="Bienvenidos" nombre="Eric" edad={27} />
-            <ItemListContai saludo="Bienvenidos" nombre="Eric" edad={27} />
-            <Counter />
-            {/* <img src={nombreQueYoQuiera} alt="" /> */}
-            {/* <img src="img/logo192.png" alt="" /> */}
-        </>
+            <Routes>
+                <Route path="/" element={<ItemListContainer />} />
+                <Route
+                    path="/category/:categoryId"
+                    element={<ItemListContainer />}
+                />
+                <Route path="/item/:id" element={<ItemDetailContainer />} />
+            </Routes>
+        </BrowserRouter>
     );
 };
 

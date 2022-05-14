@@ -3,15 +3,12 @@ import s from './Counter.module.css';
 
 const Counter = () => {
     const [numero, setNumero] = useState(0);
+    // eslint-disable-next-line
     const [bool, setBool] = useState(false);
     const [btn, setBtn] = useState('Add to Cart');
 
     const suma = () => {
-        if (numero === 7) {
-            setBool(true);
-        } else {
-            setNumero(numero + 1);
-        }
+        setNumero(numero + 1);
     };
 
     const handleButton = () => {
